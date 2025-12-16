@@ -72,3 +72,5 @@ Bash
 
 Sugestiile și îmbunătățirile sunt binevenite. Vă rugăm să deschideți un Issue sau să trimiteți un Pull Request.
 # Advanced-MultiStep-Form-Validator
+
+[![Node.js CI Status](https://github.com/Druid45ra/Advanced-MultiStep-Form-Validator/actions/workflows/main.yml/badge.svg)](https://github.com/Druid45ra/Advanced-MultiStep-Form-Validator/actions/workflows/main.yml)

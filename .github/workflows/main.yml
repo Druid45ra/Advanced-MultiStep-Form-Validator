@@ -1,0 +1,52 @@
+# .github/workflows/main.yml
+# Numele workflow-ului
+name: Node.js CI and Validation Test
+
+# 🎯 Declanșarea workflow-ului
+on:
+  push:
+    # Rulează când se face push pe branch-ul principal
+    branches: [ "main", "master" ]
+  pull_request:
+    # Rulează când se deschide un Pull Request către branch-ul principal
+    branches: [ "main", "master" ]
+
+# ⚙️ Job-urile care vor fi executate
+jobs:
+  # Numele Job-ului
+  test_validation:
+    # Rulează pe cea mai recentă versiune de Ubuntu
+    runs-on: ubuntu-latest
+
+    # Strategia pentru a testa pe diferite versiuni de Node.js (Standard Pro)
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+        # Puteți adăuga '21.x' sau '22.x' dacă doriți să testați pe cele mai noi versiuni.
+
+    steps:
+    # 1. Checkout: Descarcă codul din repo
+    - uses: actions/checkout@v4
+      with:
+        # Păstrează istoricul complet pentru a suporta testarea
+        fetch-depth: 0
+
+    # 2. Setup Node.js: Configurează mediul Node.js
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm' # Activează caching-ul pentru o instalare mai rapidă
+
+    # 3. Instalarea Dependințelor (doar pentru a avea package.json, chiar dacă e gol)
+    - name: Install dependencies
+      run: npm install
+
+    # 4. Rularea Testelor Unitare (Pasul Critic)
+    # Folosește scriptul 'test' definit în package.json
+    - name: Run Validation Tests
+      run: npm test
+
+    # 5. Pas Opcțional: Verificarea Stilizării (Linter - Dacă ați adăuga unul)
+    # - name: Run Linter (Optional)
+    #   run: npm run lint

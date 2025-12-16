@@ -1,0 +1,17 @@
+{
+    "name": "advanced-multistep-form-validator",
+    "version": "1.0.0",
+    "description": "Formular Multi-Step avansat cu validare Vanilla JS și teste unitare.",
+    "main": "index.html",
+    "scripts": {
+        "test": "echo 'Rulare teste unitare (simulare Jest)...' && node __tests__/validation.test.js"
+    },
+    "keywords": [
+        "frontend",
+        "javascript",
+        "vanilla-js",
+        "form-validation",
+        "tailwind-css",
+        "portfolio"
+    ]
+}

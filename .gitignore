@@ -1,0 +1,27 @@
+# Dependințe/Mediu Node
+# Directorul unde npm instalează dependințele pachetului local
+/node_modules
+
+# Fișiere de log / Cache
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.eslintcache
+.stylelintcache
+
+# Configurații Locale (specifice mediului local)
+.env
+.env.local
+.DS_Store # (macOS)
+Thumbs.db # (Windows)
+
+# Output de build (Dacă am avea Webpack/Rollup, ex: /dist sau /build)
+# Deși nu folosim build, îl includem ca bună practică de rezervă.
+/dist
+/build
+
+# Editori și IDE-uri
+.idea/ # Directorul de configurare JetBrains (WebStorm, IntelliJ)
+.vscode/
+*.swp # (Vim)
